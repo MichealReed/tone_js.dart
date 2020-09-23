@@ -78,8 +78,8 @@ class Sampler extends Tone {
     // devPrint('Sample $nativeInstance');
   }
 
-  Sampler toMaster() {
-    return Sampler(nativeInstance.toMaster());
+  Sampler toDestination() {
+    return Sampler(nativeInstance.toDestination());
   }
 
   void triggerAttack(String note, {dynamic delay}) {
@@ -128,6 +128,18 @@ class Instrument extends Tone {
     }
   }
 
+    void triggerRelease({dynamic delay}) {
+    String time;
+    if (delay != null) {
+      time = '+${delay}';
+    }
+    if (time == null) {
+      nativeInstance.triggerRelease();
+    } else {
+      nativeInstance.triggerRelease(time);
+    }
+  }
+
   void triggerAttackRelease(String note, dynamic duration, {dynamic delay}) {
     String time;
     if (delay != null) {
@@ -151,8 +163,8 @@ class Synth extends Instrument {
       : super(js.callConstructor(_toneContext.nativeInstance.Synth, [])
             as tone_js.Synth);
 
-  Synth toMaster() {
-    return Synth.fromNativeInstance(nativeSynth.toMaster());
+  Synth toDestination() {
+    return Synth.fromNativeInstance(nativeSynth.toDestination());
   }
 }
 

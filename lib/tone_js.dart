@@ -39,7 +39,7 @@ class Tone {
   external dynamic connect(p1, [p2, p3]);
   external dynamic disconnect([p1]);
   external dynamic dispose();
-  external dynamic toMaster();
+  external dynamic toDestination();
 }
 
 @JS()
@@ -123,6 +123,7 @@ class Instrument extends Tone {
   // external Instrument([dynamic /*InstrumentOptions */ options]);
   // note is String (C4) or num (440)
   external void triggerAttack(String note, [dynamic time]);
+  external void triggerRelease([dynamic time]);
   external void triggerAttackRelease(String note, dynamic duration,
       [dynamic time]);
   external Param get volume;
