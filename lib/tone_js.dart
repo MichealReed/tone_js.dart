@@ -107,7 +107,7 @@ class SamplerOptions {
 class Sampler extends Instrument {
   // external Sampler(dynamic samples, SamplerOptions options);
   @override
-  external Sampler toMaster();
+  external Sampler toDestination();
   external void on(String event, Function callback);
 }
 
@@ -133,7 +133,7 @@ class Instrument extends Tone {
 @anonymous
 class Synth extends Instrument {
   @override
-  external Synth toMaster();
+  external Synth toDestination();
 }
 
 // To check if available globally
